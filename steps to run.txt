@@ -1,0 +1,13 @@
+Follow the steps to run API:
+
+- Use MongoDB
+- Create user (username: root, pwd: root) and use "admin" db
+- Import foodItems.json in db
+- Build project and run main application file
+
+Follow the steps to ui:
+
+- Go to ui folder and open cmd
+- run this command from project folder : npm install
+- Then run this command: ng serve
+- Ui app will run on port:4200 so hit "localhost:4200" on the browser

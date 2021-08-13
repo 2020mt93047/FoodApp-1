@@ -1,0 +1,57 @@
+{
+    "text" : "Starters",
+    "items" : [ 
+        {
+            "id" : "ST001",
+            "text" : "Paneer Tikka",
+            "type" : "veg",
+            "price" : 200.0
+        }, 
+        {
+            "id" : "ST002",
+            "text" : "Paneer Chilly",
+            "type" : "veg",
+            "price" : 220.0
+        }, 
+        {
+            "id" : "ST003",
+            "text" : "Chicken Tandoori",
+            "type" : "non-veg",
+            "price" : 250.0
+        }
+    ]
+},
+{
+    "text" : "Main Course",
+    "items" : [ 
+        {
+            "id" : "MC001",
+            "text" : "Paneer Tikka Masala",
+            "type" : "veg",
+            "price" : 200.0
+        }, 
+        {
+            "id" : "MC002",
+            "text" : "Kaju Curry",
+            "type" : "veg",
+            "price" : 220.0
+        }
+    ]
+},
+{
+    "text" : "Deserts",
+    "items" : [ 
+        {
+            "id" : "DR001",
+            "text" : "Gulab Jamun",
+            "type" : "veg",
+            "price" : 200.0
+        }, 
+        {
+            "id" : "DR002",
+            "text" : "Carrot Halwa",
+            "type" : "veg",
+            "price" : 220.0
+        }
+    ]
+}
