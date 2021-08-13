@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-md fixed-top">
+  <img src="../../assets/logo.jpg" alt="Home Page" class="logo"/>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="foodServ.isUserLoggedIn()" [routerLink]="['/food-menu']">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="foodServ.isUserLoggedIn()" [routerLink]="['/viewCart']">View Cart</a>
+      </li>     
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="!foodServ.isUserLoggedIn()" [routerLink]="['/register']">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="!foodServ.isUserLoggedIn()" [routerLink]="['/login']">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link logout" *ngIf="foodServ.isUserLoggedIn()" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>

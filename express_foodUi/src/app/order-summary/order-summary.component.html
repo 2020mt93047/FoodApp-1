@@ -1,0 +1,53 @@
+<div class="container fContainer">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card fMenu-card">
+                <div class="card-header">Order Summary</div>
+                <ul class="list-group list-group-flush">
+                    <table class="table table-striped">
+                    </table>
+                    <table class="table borderless">
+                        <tbody>
+                            <tr>
+                                <td>{{noOfItemsMsg}}</td>
+                                <td><i class="fa fa-rupee"></i>&nbsp;{{totalPrice}}</td>
+                            </tr>
+                            <tr>
+                                <td>Discount</td>
+                                <td><i class="fa fa-rupee"></i>&nbsp;- {{foodService.discount}}</td>
+                            </tr>
+                            <tr>
+                                <td>Delivery</td>
+                                <td class="delivery-price"><strong>FREE</strong></td>
+                            </tr>
+                            <hr>
+                            <tr>
+                                <td>Total Payable</td>
+                                <td><i class="fa fa-rupee"></i>&nbsp;{{totalPayable}}</td>
+                            </tr>
+                            <tr></tr>
+                        </tbody>
+
+                    </table>
+                    <div class="order-btn">
+                    <button class="btn btn-danger btn-sm" (click)="ngxSmartModalService.getModal('myModal').open()"
+                        >Confirm Order</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-danger btn-sm"
+                        [routerLink]="['/food-menu']">Cancel Order</button>
+                    </div>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<ngx-smart-modal [customClass]="'cofirm-modal'" #myModal identifier="myModal">
+    <div>
+    <h5>Place Order</h5>
+    <hr>
+    <p>Congrats! Your order placed successfully.</p>
+  
+    <button class="btn btn-success btn-sm" [routerLink]="['/food-menu']">Close</button>
+</div>
+  </ngx-smart-modal>
