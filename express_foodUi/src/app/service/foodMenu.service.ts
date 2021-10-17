@@ -1,16 +1,18 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FoodCategory } from '../modals/foodCategory';
 import { FoodItem } from '../modals/foodItem';
 import { environment } from '../../environments/environment';
 import { User } from '../modals/user';
+import { Restaurant } from '../modals/restaurant';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FoodMenuService {
 
+  selectedRestaurant: Restaurant;
   dataSource: FoodItem[];
   discount: number;
   user: User;
@@ -18,11 +20,23 @@ export class FoodMenuService {
 
   constructor(private http: HttpClient) { }
 
-  getAllItems() {
+  getAllRestaurants() {
     let username = sessionStorage.getItem("username");
     let password = sessionStorage.getItem("password");
     const headers = new HttpHeaders({ Authorization: 'Basic ' + btoa(username + ':' + password) });
-    return this.http.get<FoodCategory[]>(this.API_URL+'/getAllMenu', {headers});
+    return this.http.get<Restaurant[]>(this.API_URL+'/getAllRestaurants', {headers});
+  }
+
+  getAllItems(selectedRestaurantId: string) {
+    let username = sessionStorage.getItem("username");
+    let password = sessionStorage.getItem("password");
+    let params = new HttpParams();
+    params.append('restaurantId', selectedRestaurantId);
+    const httpOptions = {
+        headers: { Authorization: 'Basic ' + btoa(username + ':' + password) },
+        params: {'restaurantId': selectedRestaurantId}
+    };
+    return this.http.get<FoodCategory[]>(this.API_URL+'/getAllMenu', httpOptions);
   }
 
   registerUser(user: User){
