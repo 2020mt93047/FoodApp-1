@@ -1,57 +1,176 @@
-{
-    "text" : "Starters",
-    "items" : [ 
-        {
-            "id" : "ST001",
-            "text" : "Paneer Tikka",
-            "type" : "veg",
-            "price" : 200.0
-        }, 
-        {
-            "id" : "ST002",
-            "text" : "Paneer Chilly",
-            "type" : "veg",
-            "price" : 220.0
-        }, 
-        {
-            "id" : "ST003",
-            "text" : "Chicken Tandoori",
-            "type" : "non-veg",
-            "price" : 250.0
-        }
+[
+  {
+    "name": "Khana Khazana",
+    "id": "RT001",
+    "location": "Delhi Durbar",
+    "menu": [
+      {
+        "text": "Starters",
+        "items": [
+          {
+            "id": "ST001",
+            "text": "Paneer Tikka",
+            "type": "veg",
+            "price": 200
+          },
+          {
+            "id": "ST002",
+            "text": "Paneer Chilly",
+            "type": "veg",
+            "price": 220
+          },
+          {
+            "id": "ST003",
+            "text": "Chicken Tandoori",
+            "type": "non-veg",
+            "price": 250
+          }
+        ]
+      },
+      {
+        "text": "Main Course",
+        "items": [
+          {
+            "id": "MC001",
+            "text": "Paneer Tikka Masala",
+            "type": "veg",
+            "price": 200
+          },
+          {
+            "id": "MC002",
+            "text": "Kaju Curry",
+            "type": "veg",
+            "price": 220
+          }
+        ]
+      },
+      {
+        "text": "Deserts",
+        "items": [
+          {
+            "id": "DR001",
+            "text": "Gulab Jamun",
+            "type": "veg",
+            "price": 200
+          },
+          {
+            "id": "DR002",
+            "text": "Carrot Halwa",
+            "type": "veg",
+            "price": 220
+          }
+        ]
+      }
     ]
-},
-{
-    "text" : "Main Course",
-    "items" : [ 
-        {
-            "id" : "MC001",
-            "text" : "Paneer Tikka Masala",
-            "type" : "veg",
-            "price" : 200.0
-        }, 
-        {
-            "id" : "MC002",
-            "text" : "Kaju Curry",
-            "type" : "veg",
-            "price" : 220.0
-        }
+  },
+  {
+    "name": "Italian Pizza",
+    "id": "RT002",
+    "location": "South Delhi",
+    "menu": [
+      {
+        "text": "Starters",
+        "items": [
+          {
+            "id": "ST004",
+            "text": "Garlic Bread",
+            "type": "veg",
+            "price": 250
+          },
+          {
+            "id": "ST005",
+            "text": "Chicken Nuggets",
+            "type": "non-veg",
+            "price": 150
+          }
+        ]
+      },
+      {
+        "text": "Main Course",
+        "items": [
+          {
+            "id": "MC003",
+            "text": "Paneer Tikka Pizza",
+            "type": "veg",
+            "price": 450
+          },
+          {
+            "id": "MC004",
+            "text": "Chicken Barbeque Pizza",
+            "type": "non-veg",
+            "price": 500
+          }
+        ]
+      },
+      {
+        "text": "Deserts",
+        "items": [
+          {
+            "id": "DR003",
+            "text": "Chocolate Mousse",
+            "type": "veg",
+            "price": 300
+          }
+        ]
+      }
     ]
-},
-{
-    "text" : "Deserts",
-    "items" : [ 
-        {
-            "id" : "DR001",
-            "text" : "Gulab Jamun",
-            "type" : "veg",
-            "price" : 200.0
-        }, 
-        {
-            "id" : "DR002",
-            "text" : "Carrot Halwa",
-            "type" : "veg",
-            "price" : 220.0
-        }
+  },
+  {
+    "name": "Burger Joint",
+    "id": "RT003",
+    "location": "Delhi Mall",
+    "menu": [
+      {
+        "text": "Starters",
+        "items": [
+          {
+            "id": "ST006",
+            "text": "French Fries",
+            "type": "veg",
+            "price": 150
+          },
+          {
+            "id": "ST007",
+            "text": "Chicken Roll",
+            "type": "non-veg",
+            "price": 250
+          }
+        ]
+      },
+      {
+        "text": "Main Course",
+        "items": [
+          {
+            "id": "MC005",
+            "text": "Magic Masala Burger",
+            "type": "veg",
+            "price": 260
+          },
+          {
+            "id": "MC006",
+            "text": "Chicken Burger",
+            "type": "non-veg",
+            "price": 250
+          }
+        ]
+      },
+      {
+        "text": "Deserts",
+        "items": [
+          {
+            "id": "DR005",
+            "text": "Coke Float",
+            "type": "veg",
+            "price": 75
+          },
+          {
+            "id": "DR006",
+            "text": "Ice-cream",
+            "type": "veg",
+            "price": 50
+          }
+        ]
+      }
     ]
-}
+  }
+]
