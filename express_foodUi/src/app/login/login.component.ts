@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         } else {
           sessionStorage.setItem("username", this.loginForm.controls['username'].value);
           sessionStorage.setItem("password", this.loginForm.controls['password'].value);
-          this.route.navigate(['/food-menu']);
+          this.route.navigate(['/restaurants']);
         }
       });
     }

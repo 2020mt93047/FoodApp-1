@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document(collection = "foodItems")
+
 public class Category {
 	
 	@Field("_id")
