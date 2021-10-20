@@ -2,9 +2,14 @@
   <div class="row">
     <div class="col-md-9">
       <div class="card fRestaurantList">
+        <div>
+          <input type="text" class="form-control"  
+          [(ngModel)]="term"
+          placeholder="Search for restaurants"/>
+        </div>
         <div class="card-header"><strong>Restaurants</strong></div>
         <table class="table borderless">
-          <div *ngFor="let item of allRestaurants; let i = index">
+          <div *ngFor="let item of allRestaurants | filter:term; let i = index">
               <tr >
                 <div class="row" layout-margin>
                   <div class="col-4">
