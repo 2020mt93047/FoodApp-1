@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class RestaurantsComponent implements OnInit {
 
+  term;
+
   allRestaurants: Restaurant[];
   imageList: Map<string, string> = new Map<string, string>();
 
