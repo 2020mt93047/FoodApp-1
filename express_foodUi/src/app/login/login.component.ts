@@ -28,13 +28,9 @@ export class LoginComponent implements OnInit {
 
   buildForm() {
     this.loginForm = new FormGroup({
-      username: new FormControl(Validators.required),
-      password: new FormControl(Validators.required),
+      username: new FormControl((''), [Validators.required]),
+      password: new FormControl((''), [Validators.required])
    });
-    // this.loginForm = this.fb.group({
-    //   username: ['', Validators.required],
-    //   password: ['', Validators.required]
-    // });
   }
 
   login() {
