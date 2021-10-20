@@ -1,0 +1,77 @@
+<div class="container fContainer">
+  <div class="row">
+    <div class="col-md-9">
+      <img style = "width: 3%;" src="../../assets/back.png" [routerLink]="['/restaurants']" routerLinkActive="router-link-active"  />
+      <div class="card fMenu-card">
+        <div class="card-header">
+        <strong>Food Menu</strong>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <li class="list-group-item">
+              Veg Only&nbsp;&nbsp;&nbsp;
+              <label class="switch">
+                <input type="checkbox" class="success" (change)="onVegIconClick($event)">
+                <span class="slider round"></span>
+              </label>
+            </li>
+          </thead>
+        </table>
+        <table class="table borderless">
+          <div *ngFor="let item of totalFoodItems; let i = index">
+            <thead>
+              <tr>
+                <th>{{item.catType}}</th>
+                <th colspan="2" class="chevron">
+                  <a (click)="onClickChevron(i)">
+                    <i *ngIf="!chevronClicked[i]" class="fa fa-angle-up"
+                      aria-hidden="true"></i>
+                    <i *ngIf="chevronClicked[i]" class="fa fa-angle-down"
+                      aria-hidden="true"></i>
+                  </a>
+                </th>
+                <hr>
+              </tr>
+            </thead>
+            <tbody *ngIf="chevronClicked[i]">
+              <tr *ngFor="let foodItem of item.items; let j = index">
+                <td *ngIf="!vegIconCLicked">
+                  <div class="row">
+                    <div class="col-10">
+                      <img *ngIf="foodItem.type === 'veg'" src="../../assets/veg-icon.jpeg" />
+                      <img *ngIf="foodItem.type === 'non-veg'" src="../../assets/non-veg-icon.png"/>
+                      &nbsp;&nbsp;&nbsp;<span >{{foodItem.text}}</span><br>
+                      <i class="fa fa-rupee item-price"></i>
+                      <span>{{foodItem.price}}</span><br>
+                    </div>
+                    <div class="col-2">
+                      <button class="btn btn-outline-success btn-sm" (click)="onClickAdd(i, j, foodItem)"
+                        [disabled]="addButtonFlag[i][j]">Add</button>
+                    </div>
+                  </div>
+                </td>
+                <td *ngIf="vegIconCLicked && foodItem.type === 'veg'">
+                  <div class="row">
+                    <div class="col-10">
+                      <img *ngIf="foodItem.type === 'veg'" src="../../assets/veg-icon.png"/>
+                      &nbsp;&nbsp;&nbsp;<span>{{foodItem.text}}</span><br>
+                      <i class="fa fa-rupee" class="item-price"></i>
+                      <span>{{foodItem.price}}</span><br>
+                    </div>
+                    <div class="col-2">
+                      <button class="btn btn-outline-success btn-sm" (click)="onClickAdd(i, j, foodItem)"
+                        [disabled]="addButtonFlag[i][j]">Add</button>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </div>
+        </table>
+        <button *ngIf="addtoCartFlag" class="btn btn-danger btn-sm add-to-cart" 
+        [routerLink]="['/viewCart']">Add
+          to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>

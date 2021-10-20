@@ -1,0 +1,39 @@
+<div class="container reg-container">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card reg-card">
+                <div class="card-header"><strong>User Signup</strong></div>
+            <form [formGroup]="signUpForm" class="form-group" (ngSubmit)="register()">
+                <table class="table table-striped">
+                    <!-- <tr>
+                        <td><label for="name">Full Name:</label>
+                            </td>
+                        <td><input type="text" class="form-control" formControlName="name" id="name" 
+                            [ngClass]="{ 'is-invalid': submitted && signUpForm.controls.name.errors }" placeholder="Enter Full Name"/>
+                            <div *ngIf="submitted && signUpForm.controls.name.errors && signUpForm.controls.name.errors.required" class="text-danger">Full Name is required</div></td>
+                    </tr> -->
+                    <tr>
+                        <td><label for="username">User Name:</label>
+                            </td>
+                        <td><input type="text" class="form-control" formControlName="username" autocomplete="off" id="username"
+                            [ngClass]="{ 'is-invalid': submitted && signUpForm.controls.username.errors }" placeholder="Enter User Name"/>
+                            <div *ngIf="submitted && signUpForm.controls.username.errors && signUpForm.controls.username.errors.required" class="text-danger">User Name is required</div>
+                            <div *ngIf="submitted && duplicateUser" class="text-danger">User Name already taken.</div></td>
+                    </tr>
+                    <tr>
+                        <td><label for="pwd">Password:</label>
+                            </td>
+                        <td><input type="password" class="form-control" formControlName="password" id="pwd"
+                            [ngClass]="{ 'is-invalid': submitted && signUpForm.controls.password.errors }" placeholder="Enter Password"/>
+                            <div *ngIf="submitted && signUpForm.controls.password.errors && signUpForm.controls.password.errors.required" class="text-danger">Password is required</div></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button type="submit" class="btn btn-primary btn-sm">Submit</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        </div>
+        </div>
+</div>
