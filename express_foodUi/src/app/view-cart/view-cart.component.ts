@@ -57,4 +57,9 @@ export class ViewCartComponent implements OnInit {
     this.foodServ.discount = discount;
   }
 
+  addMoreItems(event:Event){
+    console.log(this.selectedFoodItems);
+    console.log(this.foodServ.selectedRestaurant.restaurantId);
+    //this.route.navigate(['/food-menu', this.foodServ.selectedRestaurant.restaurantId]);
+  }
 }

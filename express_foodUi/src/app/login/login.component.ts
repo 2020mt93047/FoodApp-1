@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FoodMenuService } from '../service/foodMenu.service';
 
@@ -22,15 +22,19 @@ export class LoginComponent implements OnInit {
     if(!this.foodService.isUserLoggedIn()){
       this.buildForm();
     }else{
-      this.route.navigate(['/food-menu']);
+      this.route.navigate(['/restaurants']);
     }    
   }
 
   buildForm() {
-    this.loginForm = this.fb.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+    this.loginForm = new FormGroup({
+      username: new FormControl(Validators.required),
+      password: new FormControl(Validators.required),
+   });
+    // this.loginForm = this.fb.group({
+    //   username: ['', Validators.required],
+    //   password: ['', Validators.required]
+    // });
   }
 
   login() {

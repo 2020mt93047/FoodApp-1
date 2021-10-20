@@ -26,6 +26,7 @@ export class RestaurantsComponent implements OnInit {
     if (!this.foodMenuServ.isUserLoggedIn()) {
       this.route.navigate(['/login']);
     } else {
+      console.log(this.foodMenuServ.dataSource);
       this.foodMenuServ.dataSource = [];
       this.foodMenuServ.getAllRestaurants().subscribe((data) => {
         this.allRestaurants = data;
