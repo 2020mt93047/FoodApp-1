@@ -1,0 +1,33 @@
+<div class="container fContainer">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="card fRestaurantList">
+        <div>
+          <input type="text" class="form-control"  
+          [(ngModel)]="term"
+          placeholder="Search for restaurants"/>
+        </div>
+        <div class="card-header"><strong>Restaurants</strong></div>
+        <table class="table borderless">
+          <div *ngFor="let item of allRestaurants | filter:term; let i = index">
+              <tr >
+                <div class="row" layout-margin>
+                  <div class="col-4">
+                  <img src= {{imageList.get(item.restaurantId)}} />
+                  </div>
+                  <div class="col-5">
+                  <tr><strong>{{item.name}}</strong></tr>
+                  <span>{{item.location}}</span><br>
+                  </div>
+                  <div class="col-3">
+                    <button class="btn btn-danger btn-sm view-menu" (click)="viewMenuOfRestaurant(item)">View
+                      Menu</button>
+                  </div>
+                </div>
+              </tr>
+          </div>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

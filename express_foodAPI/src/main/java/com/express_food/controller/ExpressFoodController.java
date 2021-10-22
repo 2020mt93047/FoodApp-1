@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +16,7 @@ import com.express_food.dto.ResponseMsg;
 import com.express_food.dto.UsersDTO;
 import com.express_food.repository.FoodItemRepository;
 import com.express_food.repository.UsersRepository;
+import com.express_food.service.MongoRestaurantDetailsService;
 import com.express_food.service.MongoUserDetailsService;
 
 @RestController
@@ -33,9 +35,17 @@ public class ExpressFoodController {
 	@Autowired
 	private MongoUserDetailsService mongoUserDetailsService;
 	
-	@GetMapping("/getAllMenu")
-	public @ResponseBody List getAllItems(){
+	@Autowired
+	private MongoRestaurantDetailsService mongoRestaurantDetailsService;
+	
+	@GetMapping("/getAllRestaurants")
+	public @ResponseBody List getAllRestaurants(){
 		return foodItemRepository.findAll();		
+	}
+	
+	@GetMapping("/getAllMenu")
+	public @ResponseBody List getAllItems(@RequestParam("restaurantId") String restaurantId){
+		return mongoRestaurantDetailsService.findMenuOfRestaurants(restaurantId);	
 	}
 	
 	@PostMapping(value="/register", consumes = "application/json", produces = "application/json")

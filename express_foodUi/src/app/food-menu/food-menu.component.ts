@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FoodMenuService } from '../service/foodMenu.service';
 import { FoodCategory } from '../modals/foodCategory';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-food-menu',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class FoodMenuComponent implements OnInit {
 
+  selectedRestaurantId: string;
   totalFoodItems: FoodCategory[];
   addButtonFlag: boolean[][] = [];
   chevronClicked: boolean[] = [];
@@ -18,21 +20,27 @@ export class FoodMenuComponent implements OnInit {
 
 
   constructor(private foodMenuServ: FoodMenuService,
-              private route: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) {
+
+  }
 
   ngOnInit() {
-    this.chevronClicked = []
-    this.chevronClicked[0] = true;
-    if(!this.foodMenuServ.isUserLoggedIn()){
-      this.route.navigate(['/login']);
-    }else{
-      this.foodMenuServ.dataSource = [];
-    this.foodMenuServ.getAllItems().subscribe((data) => {
-      this.totalFoodItems = data;
-      this.showData();  
+    this.route.params.subscribe(params => {
+      this.selectedRestaurantId = params.id;
     });
+    this.chevronClicked = [];
+    this.chevronClicked[0] = true;
+    if (!this.foodMenuServ.isUserLoggedIn()) {
+      this.router.navigate(['/login']);
+    } else {
+      this.foodMenuServ.dataSource = [];
+      this.foodMenuServ.getAllItems(this.selectedRestaurantId).subscribe((data) => {
+        this.totalFoodItems = data;
+        this.showData();
+      });
     }
-    
+
 
   }
 
@@ -40,40 +48,40 @@ export class FoodMenuComponent implements OnInit {
     for (let i = 0; i < this.totalFoodItems.length; i++) {
       this.chevronClicked.push(false);
       this.addButtonFlag[i] = [];
-      for(let j = 0; j < this.totalFoodItems[i].items.length; j++){
+      for (let j = 0; j < this.totalFoodItems[i].items.length; j++) {
         this.foodMenuServ.dataSource.push(this.totalFoodItems[i].items[j]);
         this.addButtonFlag[i][j] = false;
       }
-      
+
     }
   }
 
-  onClickAdd(parentIndex, index, foodItem){
+  onClickAdd(parentIndex, index, foodItem) {
     this.addButtonFlag[parentIndex][index] = true;
-    this.foodMenuServ.dataSource.forEach(item=>{
-      if(item.id === foodItem.id){
+    this.foodMenuServ.dataSource.forEach(item => {
+      if (item.id === foodItem.id) {
         item.quantity = 1;
-      }      
+      }
     });
     this.addtoCartFlag = true;
   }
 
-  onVegIconClick(event){
-    if(event.target.checked){
+  onVegIconClick(event) {
+    if (event.target.checked) {
       this.vegIconCLicked = true;
-    }else if(!event.target.checked){
+    } else if (!event.target.checked) {
       this.vegIconCLicked = false;
     }
   }
 
   onClickChevron(index) {
-    if(this.chevronClicked[index] === true){
+    if (this.chevronClicked[index] === true) {
       this.chevronClicked[index] = false;
     }
     else {
       this.chevronClicked[index] = true;
     }
   }
-  
+
 
 }

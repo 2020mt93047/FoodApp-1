@@ -14,19 +14,18 @@
               <tbody>
                 <tr>
                   <td>
-                    <img *ngIf="item.type === 'veg'" src="../../assets/veg-icon.png"/>
+                    <img *ngIf="item.type === 'veg'" src="../../assets/veg-icon.jpeg"/>
                     <img *ngIf="item.type === 'non-veg'" src="../../assets/non-veg-icon.png"/> &nbsp;&nbsp;&nbsp;<span
                       >{{item.text}}</span><br>
-                    <i class="fa fa-rupee" class="item-price"></i>
+                    <i class="fa fa-rupee item-price"></i>
                     <span>{{item.price}}</span><br>
                   </td>
                   <!-- <td><button class="btn btn-outline-success btn-sm" (click)="onClickAdd(j, $event)" [disabled]="addButtonFlag[j]">Add</button></td> -->
                   <td>
-
-                    <div class="item-q">
-                      <button class="btn btn-outline-success"
-                        (click)="onClickMinus(item)">-</button>&nbsp;&nbsp;&nbsp;&nbsp;{{item.quantity}}&nbsp;&nbsp;&nbsp;&nbsp;
-                      <button class="btn btn-outline-success" (click)="onClickPlus(item)">+</button>
+                    <div>
+                      <button class="btn btn-outline-success btn-sm"
+                        (click)="onClickMinus(item)">-</button>&nbsp;&nbsp;{{item.quantity}}&nbsp;
+                      <button class="btn btn-outline-success btn-sm" (click)="onClickPlus(item)">+</button>
                     </div>
                     <!-- <input type="button" value="+" data-field="quantity"> -->
 
@@ -36,7 +35,8 @@
             </div>
             <br>
             <div class="add-more">
-              <a href="" routerLink="/food-menu"><strong>+ Add more items</strong></a>
+              <!-- <a href="" routerLink="/restaurants"><strong>+ Add more items</strong></a> -->
+              <a href="{{'/food-menu/'+foodServ.selectedRestaurant.restaurantId}}" (click)="addMoreItems($event)"><strong>+ Add more items</strong></a>
               <hr>
               <button class="btn-coupon" (click)="onCouponBtn()">
               <i class="fa fa-hand-o-right"></i>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Apply
